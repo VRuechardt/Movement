@@ -7,12 +7,74 @@
 .game--wrapper {
 
   text-align: center;
-  padding: 50px;
   transition: opacity 0.5s;
   opacity: 0;
+  padding-top: 20px;
 
   &.game--ready {
     opacity: 1;
+  }
+
+  .game--lobby-code {
+
+    margin-bottom: calc(20px - 3.5vw);
+    height: 14.8vw;
+    background: $primary-color;
+    box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.2);
+    margin: 0 -10px;
+    padding: 0 10px;
+
+    .game--lobby-button {
+      position: initial;
+      width: 12vw;
+      height: 12vw;
+      box-shadow: none;
+      margin: 1.4vw;
+      &:first-child {
+        margin-left: 7vw;
+      }
+      &:last-child {
+        margin-right: 7vw;
+      }
+    }
+
+  }
+
+  .game--lobby-button {
+
+    @extend .z-depth-1;
+    position: relative;
+    left: 0;
+    top: 0;
+    transition: box-shadow 0.2s, left 0.2s, top 0.2s;
+    width: 24vw;
+    height: 24vw;
+    float: left;
+    margin: 3.5vw;
+    &:first-child {
+      margin-left: 7vw;
+    }
+    &:last-child {
+      margin-right: 7vw;
+    }
+    &:active {
+      box-shadow: none;
+      left: 2px;
+      top: 2px;
+    }
+
+  }
+
+}
+
+@media screen and (orientation: landscape) {
+
+  .game--wrapper {
+    display: none;
+  }
+
+  .orientation-handheld {
+    display: block;
   }
 
 }

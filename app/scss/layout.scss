@@ -2,3 +2,18 @@
 html, body {
   background: lighten($primary-color, 10%);
 }
+
+.orientation-handheld {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: calc(50vh - 40px);
+  font-size: 80px;
+  line-height: 80px;
+  text-align: center;
+}
+
+.clear {
+  clear: both;
+}

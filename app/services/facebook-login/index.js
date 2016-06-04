@@ -51,6 +51,19 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
         listenLoading: function(callback) {
             loadingCallbacks.push(callback);
             callback(loading);
+        },
+
+        getUser: function(callback) {
+
+            FB.api(
+                "/" + authResponse.userID,
+                function (response) {
+                    if (response && !response.error) {
+                        callback(response);
+                    }
+                }
+            );
+
         }
 
     };
@@ -74,6 +87,7 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
         if(response.status === 'connected') {
 
             isLoggedIn = true;
+            authResponse = response.authResponse;
             $timeout(function() {
                 $location.path('game');
             }, 1700);
@@ -97,6 +111,7 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
     var loggedInCallback = function() {};
     var loading = 0;
     var isLoggedIn = false;
+    var authResponse = {};
 
     return svc;
 }];
