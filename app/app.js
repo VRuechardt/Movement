@@ -31,6 +31,7 @@ var app = angular.module('movement', [
         });
 
     }])
+    .factory('facebookLogin', require('./services/facebook-login'))
 
     .run(['$route', '$rootScope', '$location', function($route, $rootScope, $location) {
 

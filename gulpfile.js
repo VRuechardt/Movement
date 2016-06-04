@@ -83,7 +83,7 @@ gulp.task('scripts', function() {
 
 gulp.task('html', function() {
 
-    gulp.src('./app/index-dev.html')
+    gulp.src('./app/index.html')
         .pipe(plumber())
         .pipe(htmlmin({
             collapseWhitespace: true
@@ -112,7 +112,7 @@ gulp.task('html', function() {
 
 gulp.task('html-dev', function() {
 
-    gulp.src('./app/index-dev.html')
+    gulp.src('./app/index.html')
         .pipe(plumber())
         .pipe(rename('index.html'))
         .pipe(gulp.dest('./dest'))
