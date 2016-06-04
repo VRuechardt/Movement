@@ -1,0 +1,21 @@
+{
+  "name": "movement",
+  "description": "",
+  "main": "gulpfile.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.7",
+    "angular": "~1.4.7",
+    "components-font-awesome": "~4.4.0",
+    "angular-scroll-glue": "^2.0.6",
+    "Materialize": "materialize#^0.97.6"
+  }
+}
