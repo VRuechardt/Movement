@@ -8,22 +8,6 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
 
     var svc = {
 
-        init: function() {
-
-            if(!FB) {
-                window.fbAsyncInit = function () {
-                    FB.init({
-                        appId: '1014621818614561',
-                        xfbml: true,
-                        version: 'v2.6',
-                        cookie: true
-                    });
-                    svc.check();
-                };
-            }
-
-        },
-
         login: function() {
 
             loading++;
