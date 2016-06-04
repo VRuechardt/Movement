@@ -14,7 +14,7 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
             $scope.loggedIn = true;
             $timeout(function() {
                 $location.path('game');
-            }, 700);
+            }, 1700);
         }
         $scope.loading--;
         $scope.$apply();

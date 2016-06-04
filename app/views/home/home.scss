@@ -27,10 +27,10 @@
     text-align: center;
     color: $secondary-color;
 
-    transition: top 0.5s, bottom 0.5s, padding 0.5s, color 0.5s;
+    transition: top 1.5s, bottom 1.5s, padding 1.5s, color 0.5s;
 
     i {
-      transition: opacity 0.5s;
+      transition: opacity 1.5s;
     }
 
     &.home--opening {
