@@ -1,3 +1,14 @@
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+<div class="home--wrapper">
+
+    <div class="progress" ng-show="loading > 0">
+        <div class="indeterminate"></div>
+    </div>
+
+    <div class="home--login-container" ng-class="{'home--opening': loggedIn, 'home--loading': loading > 0}" ng-click="login()">
+
+        <i class="fa fa-facebook"></i> <i class="fa fa-sign-in"></i>
+
+    </div>
+
+</div>

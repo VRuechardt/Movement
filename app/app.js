@@ -13,6 +13,7 @@ require('angular-scroll-glue');
 
 // views
 require('./views/home');
+require('./views/game');
 
 var app = angular.module('movement', [
 
@@ -20,7 +21,8 @@ var app = angular.module('movement', [
         'luegg.directives',
 
         // views
-        'movement.home'
+        'movement.home',
+        'movement.game'
 
     ])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {

@@ -13,14 +13,7 @@
 <body>
 
     <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '1014621818614561',
-                xfbml      : true,
-                version    : 'v2.6',
-                cookie     : true
-            });
-        };
+
 
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -31,7 +24,7 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    <div ng-view autoscroll="true"></div>
+    <div ng-view ng-cloak autoscroll="true"></div>
 
     <link rel="stylesheet" href="app.css" />
     <script type="text/javascript" src="app.js"></script>

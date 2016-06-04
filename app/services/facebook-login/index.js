@@ -6,28 +6,37 @@
 
 module.exports = [function() {
 
-    var statusChange = function() {
+    var statusChange = function(response) {
 
-        if (response.status === 'connected') {
-            // Logged into your app and Facebook.
-            
-        } else if (response.status === 'not_authorized') {
-            // The person is logged into Facebook, but not your app.
-            
-        } else {
-            // The person is not logged into Facebook, so we're not sure if
-            // they are logged into this app or not.
-            
-        }
+        callbacks.forEach(function(o) {
+            o(response.status);
+        });
 
     };
 
+    var callbacks = [];
+
     return {
 
-        checkLoginState: function() {
+        login: function() {
+
+            FB.login(statusChange, {
+                scope: 'public_profile,email',
+                display: 'popup'
+            });
+
+        },
+
+        check: function() {
+
             FB.getLoginStatus(function(response) {
                 statusChange(response);
             });
+
+        },
+
+        listen: function(callback) {
+            callbacks.push(callback);
         }
 
     };

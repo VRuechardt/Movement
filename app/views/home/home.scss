@@ -1,0 +1,55 @@
+
+.home--wrapper {
+
+  background: $primary-color;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  .progress {
+    margin-top: 0;
+    background: none;
+  }
+
+  .home--login-container {
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% - 80px);
+    bottom: calc(50% - 80px);
+    background: lighten($primary-color, 10%);
+    padding: 30px 0;
+    font-size: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: $secondary-color;
+
+    transition: top 0.5s, bottom 0.5s, padding 0.5s, color 0.5s;
+
+    i {
+      transition: opacity 0.5s;
+    }
+
+    &.home--opening {
+
+      top: 0;
+      bottom: 0;
+      padding: calc(50vh - 50px) 0;
+      color: grey;
+
+      i {
+        opacity: 0;
+      }
+
+    }
+
+    &.home--loading {
+      color: grey;
+    }
+
+  }
+
+}
