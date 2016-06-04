@@ -5,10 +5,16 @@
         <div class="indeterminate"></div>
     </div>
 
-    <div class="home--login-container" ng-class="{'home--opening': loggedIn, 'home--loading': loading > 0}" ng-click="login()">
+    <a ng-click="login()">
 
-        <i class="fa fa-facebook"></i> <i class="fa fa-sign-in"></i>
+        <div class="home--login-container" ng-class="{'home--opening': loggedIn, 'home--loading': loading > 0}">
 
-    </div>
+            <i class="fa fa-facebook"></i> <i class="fa fa-sign-in"></i>
+
+        </div>
+
+    </a>
+
+
 
 </div>
