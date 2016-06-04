@@ -151,6 +151,7 @@ gulp.task('resources', function() {
 })
 
 gulp.task('watch', function() {
+    
     gulp.start('default');
     livereload.listen({
         start: true
@@ -176,7 +177,4 @@ gulp.task('watch', function() {
         gulp.start('resources');
     });
 
-    //var scssWatcher = gulp.watch(['app/app.scss', 'app/scss/**/*.scss', 'app/views/**/*.scss', 'app/directives/**/*.scss'], ['styles']);
-    //var jsWatcher = gulp.watch(['app/app.js', 'app/views/**/*.js', 'app/factories/**/*.js', 'app/api/**/*.js', 'app/directives/**/*.js', 'app/util/**/*.js'], ['scripts']);
-    //var htmlWatcher = gulp.watch(['app/*.html', 'app/views/**/*.html', 'app/directives/**/*.html'], ['html']);
 });
