@@ -6,6 +6,8 @@
 
 module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($scope, $timeout, $location, facebookLogin) {
 
+    facebookLogin.init();
+
     $scope.loggedIn = false;
     $scope.loading = 0;
 

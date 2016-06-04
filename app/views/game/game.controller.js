@@ -6,10 +6,14 @@
 
 module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($scope, $timeout, $location, facebookLogin) {
 
+    facebookLogin.init();
+
     $scope.ready = false;
     $scope.colorsLocked = false;
     $scope.user = {};
     $scope.colors = [];
+    
+    $scope.status = 'Bitte drücke auf sechs Farben. Du spielst mit den Menschen, die auf die gleichen Farben in der gleichen Reihenfolge drücken.';
 
     $scope.init = function() {
 
@@ -58,6 +62,10 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
             $scope.$apply();
         }, 10);
 
+        $timeout(function() {
+            $scope.status = 'Jetzt können weitere Spieler beitreten. Warte, bis alle da sind.';
+            $scope.$apply();
+        }, 500);
 
     };
 
