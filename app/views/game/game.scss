@@ -4,6 +4,31 @@
   background: none;
 }
 
+.game--lobby-button {
+
+  @extend .z-depth-1;
+  position: relative;
+  left: 0;
+  top: 0;
+  transition: box-shadow 0.2s, left 0.2s, top 0.2s;
+  width: 24vw;
+  height: 24vw;
+  float: left;
+  margin: 3.5vw;
+  &:first-child {
+    margin-left: 7vw;
+  }
+  &:last-child {
+    margin-right: 7vw;
+  }
+  &:active {
+    box-shadow: none;
+    left: 2px;
+    top: 2px;
+  }
+
+}
+
 .game--wrapper {
 
   text-align: center;
@@ -25,7 +50,7 @@
     margin: 0 -10px;
     padding: 0 10px;
     margin-bottom: calc(20px - 3.5vw);
-    transition: height 1.5s;
+    transition: height 0.5s;
 
     .game--lobby-button {
 
@@ -34,7 +59,7 @@
       height: 12vw;
       box-shadow: none;
       margin: 1.4vw;
-      transition: opacity 1.5s;
+      transition: margin-top 0.5s;
 
       &:first-child {
         margin-left: 7vw;
@@ -50,34 +75,49 @@
       overflow: hidden;
 
       .game--lobby-button {
-        opacity: 0;
+        margin-top: -20vw;
       }
 
     }
 
   }
 
+}
+
+.game--header {
+
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 10px;
+  overflow: hidden;
+  pointer-events: none;
+
   .game--lobby-button {
 
     @extend .z-depth-1;
-    position: relative;
-    left: 0;
-    top: 0;
-    transition: box-shadow 0.2s, left 0.2s, top 0.2s;
-    width: 24vw;
-    height: 24vw;
-    float: left;
-    margin: 3.5vw;
+    position: initial;
+    width: 12vw;
+    height: 12vw;
+    margin: -13vw 1.4vw 1.4vw;
+    transition: margin-top 0.5s;
+
     &:first-child {
       margin-left: 7vw;
     }
     &:last-child {
       margin-right: 7vw;
     }
-    &:active {
-      box-shadow: none;
-      left: 2px;
-      top: 2px;
+
+  }
+
+  &.active {
+
+    opacity: 1;
+    .game--lobby-button {
+      margin-top: -11vw;
     }
 
   }

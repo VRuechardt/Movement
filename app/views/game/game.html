@@ -3,6 +3,13 @@
     <div class="indeterminate"></div>
 </div>
 
+<div class="game--header" ng-class="{active: colorsLocked}">
+
+    <div class="game--lobby-button {{color}}" ng-repeat="color in colors track by $index" ng-click="removeColor($index)"></div>
+    <div class="clear"></div>
+
+</div>
+
 <div class="game--wrapper" ng-class="{'game--ready': ready}">
 
     <div class="container">
