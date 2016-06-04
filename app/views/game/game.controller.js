@@ -27,11 +27,13 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
 
     };
 
-    facebookLogin.ready(function() {
+    console.log(facebookLogin.isLoggedIn());
 
+    if(!facebookLogin.isLoggedIn()) {
+        $location.path('/');
+    } else {
         $scope.init();
-
-    });
+    }
 
     $scope.addColor = function(color) {
 
