@@ -6,6 +6,13 @@
 
 module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($scope, $timeout, $location, facebookLogin) {
 
-    
+    $scope.ready = false;
+
+    facebookLogin.ready(function() {
+        $timeout(function() {
+            $scope.ready = true;
+        }, 10);
+
+    });
 
 }];

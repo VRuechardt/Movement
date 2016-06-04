@@ -1,7 +1,18 @@
 
+.game--waiting-progress {
+  margin-top: 0;
+  background: none;
+}
+
 .game--wrapper {
 
   text-align: center;
   padding: 50px;
+  transition: opacity 0.5s;
+  opacity: 0;
+
+  &.game--ready {
+    opacity: 1;
+  }
 
 }

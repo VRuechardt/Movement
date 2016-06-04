@@ -1,5 +1,9 @@
 
-<div class="game--wrapper">
+<div class="progress game--waiting-progress" ng-show="!ready">
+    <div class="indeterminate"></div>
+</div>
+
+<div class="game--wrapper" ng-class="{'game--ready': ready}">
 
     This will be the game
 

@@ -12,25 +12,18 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
     facebookLogin.listen(function(status) {
         if(status === 'connected') {
             $scope.loggedIn = true;
-            $timeout(function() {
-                $location.path('game');
-            }, 1700);
         }
         $scope.loading--;
         $scope.$apply();
     });
 
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '1014621818614561',
-            xfbml      : true,
-            version    : 'v2.6',
-            cookie     : true
-        });
-        facebookLogin.check();
-        $scope.loading++;
-        $scope.$apply();
-    };
+    facebookLogin.listenLoading(function(loading) {
+        $scope.loading = loading;
+        if(!$scope.$$phase) {
+            $scope.$apply();
+        }
+    });
+
 
 
     $scope.login = function() {
