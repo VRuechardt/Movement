@@ -7,6 +7,7 @@
 module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($scope, $timeout, $location, facebookLogin) {
 
     $scope.ready = false;
+    $scope.colorsLocked = false;
     $scope.user = {};
     $scope.colors = [];
 
@@ -36,10 +37,28 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
             $scope.colors.push(color);
         }
 
+        if($scope.colors.length === 6) {
+            $scope.lockColors();
+        }
+
     };
 
     $scope.removeColor = function(index) {
-        $scope.colors.splice(index, 1);
+
+        if(!$scope.colorsLocked) {
+            $scope.colors.splice(index, 1);
+        }
+
+    };
+
+    $scope.lockColors = function() {
+
+        $timeout(function() {
+            $scope.colorsLocked = true;
+            $scope.$apply();
+        }, 10);
+
+
     };
 
 }];

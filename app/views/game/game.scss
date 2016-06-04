@@ -10,6 +10,8 @@
   transition: opacity 0.5s;
   opacity: 0;
   padding-top: 20px;
+  width: 100vw;
+  overflow-x: hidden;
 
   &.game--ready {
     opacity: 1;
@@ -23,19 +25,34 @@
     margin: 0 -10px;
     padding: 0 10px;
     margin-bottom: calc(20px - 3.5vw);
+    transition: height 1.5s;
 
     .game--lobby-button {
+
       position: initial;
       width: 12vw;
       height: 12vw;
       box-shadow: none;
       margin: 1.4vw;
+      transition: opacity 1.5s;
+
       &:first-child {
         margin-left: 7vw;
       }
       &:last-child {
         margin-right: 7vw;
       }
+    }
+
+    &.game--lobby-locked {
+
+      height: 0;
+      overflow: hidden;
+
+      .game--lobby-button {
+        opacity: 0;
+      }
+
     }
 
   }
