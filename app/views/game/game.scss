@@ -17,12 +17,12 @@
 
   .game--lobby-code {
 
-    margin-bottom: calc(20px - 3.5vw);
     height: 14.8vw;
     background: $primary-color;
     box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.2);
     margin: 0 -10px;
     padding: 0 10px;
+    margin-bottom: calc(20px - 3.5vw);
 
     .game--lobby-button {
       position: initial;
