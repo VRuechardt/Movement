@@ -48,11 +48,11 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "browser": {
-    "jquery": "./bower_components/jquery/dist/jquery.min.js",
-    "materialize": "./bower_components/materialize/dist/js/materialize.min.js",
-    "angular-route": "./bower_components/angular-route/angular-route.min.js",
-    "angular": "./bower_components/angular/angular.min.js",
-    "angular-scroll-glue": "./bower_components/angular-scroll-glue/src/scrollglue.js"
+    "jquery": "./dest/bower_components/jquery/dist/jquery.min.js",
+    "materialize": "./dest/bower_components/materialize/dist/js/materialize.min.js",
+    "angular-route": "./dest/bower_components/angular-route/angular-route.min.js",
+    "angular": "./dest/bower_components/angular/angular.min.js",
+    "angular-scroll-glue": "./dest/bower_components/angular-scroll-glue/src/scrollglue.js"
   },
   "browserify-shim": {
     "jquery": "$",
