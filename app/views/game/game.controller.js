@@ -10,12 +10,6 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
     $scope.user = {};
     $scope.colors = [];
 
-    facebookLogin.ready(function() {
-
-        $scope.init();
-
-    });
-
     $scope.init = function() {
 
         $timeout(function() {
@@ -29,6 +23,12 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
         });
 
     };
+
+    facebookLogin.ready(function() {
+
+        $scope.init();
+
+    });
 
     $scope.addColor = function(color) {
 
