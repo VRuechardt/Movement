@@ -3,3 +3,5 @@
 /node_modules
 /dest/bower_components
 /.idea
+# Ionic App
+/Charades

@@ -3,51 +3,25 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#607d8b">
     <title>Movement</title>
-
-    <meta name="fragment" content="!" />
-    <base href="/index.html">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
 
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '1014621818614561',
-                xfbml: true,
-                version: 'v2.6',
-                cookie: true
-            });
-
-            document.body.style.display = 'block';
-
-            if(window.facebookCallback) {
-                window.facebookCallback();
-            }
-
-        };
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <div ng-view ng-cloak autoscroll="true"></div>
+    <div ng-view ng-cloak autoscroll="true" class="app"></div>
 
     <div class="orientation-handheld">
         Handy drehen
     </div>
 
-    <link rel="stylesheet" href="app.css" />
-    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
 </body>
 </html>

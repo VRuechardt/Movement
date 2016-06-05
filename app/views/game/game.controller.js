@@ -6,6 +6,8 @@
 
 module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($scope, $timeout, $location, facebookLogin) {
 
+    console.log('$location', $location);
+
     $scope.ready = false;
     $scope.colorsLocked = false;
     $scope.user = {};
@@ -14,6 +16,8 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
     $scope.status = 'Bitte drücke auf sechs Farben. Du spielst mit den Menschen, die auf die gleichen Farben in der gleichen Reihenfolge drücken.';
 
     $scope.init = function() {
+
+        console.log('init');
 
         $timeout(function() {
             $scope.ready = true;

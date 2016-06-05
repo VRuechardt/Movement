@@ -6,6 +6,8 @@
 
 module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $location, $timeout) {
 
+
+
     var svc = {
 
         login: function() {
@@ -14,9 +16,8 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
             loadingCallbacks.forEach(function(o) {
                 o(loading);
             });
-            FB.login(statusChange, {
-                scope: 'public_profile,email',
-                display: 'popup'
+            facebookConnectPlugin.login(['public_profile','email'], function(response) {
+                statusChange(response);
             });
 
         },
@@ -27,7 +28,7 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
             loadingCallbacks.forEach(function(o) {
                 o(loading);
             });
-            FB.getLoginStatus(function(response) {
+            facebookConnectPlugin.getLoginStatus(function(response) {
                 statusChange(response);
             });
 
@@ -42,6 +43,9 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
         },
 
         isLoggedIn: function() {
+
+            console.log('isLoggedIn', isLoggedIn);
+
             return isLoggedIn;
         },
 
@@ -55,9 +59,12 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
 
         getUser: function(callback) {
 
-            FB.api(
-                "/" + authResponse.userID,
+            console.log('getting user');
+
+            facebookConnectPlugin.api(
+                "/" + authResponse.userID, [],
                 function (response) {
+                    console.log('getUser response', response);
                     if (response && !response.error) {
                         callback(response);
                     }
@@ -70,6 +77,7 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
 
     var statusChange = function(response) {
 
+        console.log('statusChange response', response);
         loading--;
         loadingCallbacks.forEach(function(o) {
             o(loading);

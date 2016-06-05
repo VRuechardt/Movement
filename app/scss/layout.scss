@@ -2,10 +2,10 @@
 html, body {
   background: lighten($primary-color, 10%);
   color: white;
-}
-
-body {
-  display: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -op-user-select: none;
 }
 
 .orientation-handheld {

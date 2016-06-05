@@ -16,6 +16,9 @@ var imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 var livereload = require('gulp-livereload');
 
+var dest = 'dest/';
+var cordova = false;
+
 gulp.task('default', function() {
 
     process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -43,18 +46,26 @@ gulp.task('production', function() {
 
 });
 
+gulp.task('cordova', function() {
+    
+    dest = 'Charades/www/';
+    cordova = true;
+    gulp.start('watch');
+    
+});
+
 gulp.task('styles', function() {
 
     process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-    gulp.src("./app/app.scss")
+    gulp.src("./app/index.scss")
         .pipe(plumber())
         .pipe(sass())
         .pipe(cleanCSS({
             compatibility: 'ie8',
             keepBreaks: process.env.NODE_ENV !== 'production'
         }))
-        .pipe(gulp.dest("./dest/"))
+        .pipe(gulp.dest(dest + 'css/'))
         .pipe(livereload());
 
 });
@@ -64,17 +75,17 @@ gulp.task('scripts', function() {
     process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
     var ret = browserify({
-        entries: ['./app/app.js'],
+        entries: ['./app/index.js'],
         paths: ['./app/bower_components']
     }).bundle()
-        .pipe(source('app.js'))
+        .pipe(source('index.js'))
         .pipe(buffer());
 
     if(process.env.NODE_ENV === 'production') {
         ret.pipe(uglify());
     }
 
-    ret.pipe(gulp.dest('./dest'))
+    ret.pipe(gulp.dest(dest + 'js/'))
         .pipe(livereload());
 
     return ret;
@@ -89,7 +100,7 @@ gulp.task('html', function() {
             collapseWhitespace: true
         }))
         .pipe(rename('index.html'))
-        .pipe(gulp.dest('./dest'))
+        .pipe(gulp.dest(dest))
         .pipe(livereload());
 
     gulp.src('./app/views/**/*.html')
@@ -97,7 +108,7 @@ gulp.task('html', function() {
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
-        .pipe(gulp.dest('./dest'))
+        .pipe(gulp.dest(dest))
         .pipe(livereload());
 
     gulp.src('./app/directives/**/*.html')
@@ -105,7 +116,7 @@ gulp.task('html', function() {
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
-        .pipe(gulp.dest('./dest'))
+        .pipe(gulp.dest(dest))
         .pipe(livereload());
 
 });
@@ -115,17 +126,17 @@ gulp.task('html-dev', function() {
     gulp.src('./app/index.html')
         .pipe(plumber())
         .pipe(rename('index.html'))
-        .pipe(gulp.dest('./dest'))
+        .pipe(gulp.dest(dest))
         .pipe(livereload());
 
     gulp.src('./app/views/**/*.html')
         .pipe(plumber())
-        .pipe(gulp.dest('./dest'))
+        .pipe(gulp.dest(dest))
         .pipe(livereload());
 
     gulp.src('./app/directives/**/*.html')
         .pipe(plumber())
-        .pipe(gulp.dest('./dest'))
+        .pipe(gulp.dest(dest))
         .pipe(livereload());
 
 });
@@ -146,16 +157,19 @@ gulp.task('images', function() {
 gulp.task('resources', function() {
 
     gulp.src('app/resources/**/*')
-        .pipe(gulp.dest('./dest/resources'));
+        .pipe(gulp.dest(dest + 'resources'));
 
-})
+});
 
 gulp.task('watch', function() {
     
     gulp.start('default');
-    livereload.listen({
-        start: true
-    });
+
+    if(!cordova) {
+        livereload.listen({
+            start: true
+        });
+    }
 
     watch('app/**/*.js', function() {
         gulp.start('scripts');
