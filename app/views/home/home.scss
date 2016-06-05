@@ -18,19 +18,38 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: calc(50% - 80px);
-    bottom: calc(50% - 80px);
+    top: calc(33.3% - 80px);
+    bottom: calc(66.6% - 80px);
     background: lighten($primary-color, 10%);
-    padding: 30px 0;
-    font-size: 100px;
+    padding: 30px;
     line-height: 100px;
-    text-align: center;
     color: $secondary-color;
+    text-align: center;
 
-    transition: top 1.5s, bottom 1.5s, padding 1.5s, color 0.5s;
+    transition: top 1.0s, bottom 1.0s, padding 1.0s, color 0.5s, background 0.5s;
+
+    p {
+      transition: opacity 0.5s;
+      width: calc(100% - 79px);
+      float: right;
+      margin: 0;
+      font-size: 20px;
+    }
 
     i {
-      transition: opacity 1.5s;
+      transition: opacity 0.5s;
+      font-size: 100px;
+      float: left;
+      width: 79px;
+    }
+
+    &.home--loading {
+      color: grey;
+    }
+
+    &.home--offline {
+      top: calc(66.6% - 80px);
+      bottom: calc(33.3% - 80px);
     }
 
     &.home--opening {
@@ -40,14 +59,23 @@
       padding: calc(50vh - 50px) 0;
       color: grey;
 
-      i {
+      z-index: 100;
+
+      i, p {
         opacity: 0;
       }
 
     }
 
-    &.home--loading {
-      color: grey;
+    &.home--disappearing {
+
+      background: $primary-color;
+      t-index: 50;
+
+      i, p {
+        opacity: 0;
+      }
+
     }
 
   }

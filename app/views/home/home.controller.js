@@ -33,4 +33,14 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
         }
     };
 
+    $scope.offline = function() {
+
+        $scope.openingOffline = true;
+
+    };
+
+    window.facebookCallback = function() {
+        facebookLogin.check();
+    };
+
 }];

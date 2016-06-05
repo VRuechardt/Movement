@@ -37,6 +37,7 @@
   padding-top: 20px;
   width: 100vw;
   overflow-x: hidden;
+  min-height: 100vh;
 
   &.game--ready {
     opacity: 1;
@@ -60,10 +61,10 @@
 
   .game--lobby-code {
 
-    height: 14.8vw;
+    height: 17.6vw;
     background: $primary-color;
     box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.2);
-    margin: 0 -10px;
+    margin:  -10px;
     padding: 0 10px;
     margin-bottom: calc(20px - 3.5vw);
     transition: height 0.5s;
@@ -73,9 +74,8 @@
       position: initial;
       width: 12vw;
       height: 12vw;
-      box-shadow: none;
-      margin: 1.4vw;
-      transition: margin-top 0.5s;
+      margin: 2.8vw 1.4vw;
+      transition: margin-top 0.5s, background 0.3s;
 
       &:first-child {
         margin-left: 7vw;
@@ -107,7 +107,7 @@
   left: 0;
   right: 0;
   top: 0;
-  height: 10px;
+  height: 20px;
   overflow: hidden;
   pointer-events: none;
 
@@ -133,7 +133,7 @@
 
     opacity: 1;
     .game--lobby-button {
-      margin-top: -11vw;
+      margin-top: -10vw;
     }
 
   }

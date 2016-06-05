@@ -9,7 +9,7 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
     $scope.ready = false;
     $scope.colorsLocked = false;
     $scope.user = {};
-    $scope.colors = [];
+    $scope.colors = ['z-depth-1', 'z-depth-1', 'z-depth-1', 'z-depth-1', 'z-depth-1', 'z-depth-1'];
     
     $scope.status = 'Bitte drücke auf sechs Farben. Du spielst mit den Menschen, die auf die gleichen Farben in der gleichen Reihenfolge drücken.';
 
@@ -25,9 +25,9 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
             $scope.$apply();
         });
 
-    };
+        window.scrollTo(0,1);
 
-    console.log(facebookLogin.isLoggedIn());
+    };
 
     if(!facebookLogin.isLoggedIn()) {
         $location.path('/');
@@ -37,11 +37,17 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
 
     $scope.addColor = function(color) {
 
-        if($scope.colors.length < 6) {
-            $scope.colors.push(color);
+        var found = false;
+
+        for(var i = 0; i < $scope.colors.length; i++) {
+            if($scope.colors[i] === 'z-depth-1') {
+                $scope.colors[i] = color;
+                found = i;
+                i = $scope.colors.length;
+            }
         }
 
-        if($scope.colors.length === 6) {
+        if(found === $scope.colors.length - 1) {
             $scope.lockColors();
         }
 
@@ -50,7 +56,7 @@ module.exports = ['$scope', '$timeout', '$location', 'facebookLogin', function($
     $scope.removeColor = function(index) {
 
         if(!$scope.colorsLocked) {
-            $scope.colors.splice(index, 1);
+            $scope.colors[index] = 'z-depth-1';
         }
 
     };

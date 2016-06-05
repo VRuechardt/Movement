@@ -80,7 +80,7 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
             authResponse = response.authResponse;
             $timeout(function() {
                 $location.path('game');
-            }, 1700);
+            }, 1200);
             loggedInCallback();
 
         } else {
