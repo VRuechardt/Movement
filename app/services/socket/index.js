@@ -8,10 +8,10 @@ module.exports = ['$rootScope', '$timeout', function($rootScope, $timeout) {
 
     return {
 
-        subscribe: function(channel) {
-            socket.emit('room', channel);
-        },
         on: function (eventName, callback) {
+
+            console.log('socket event', eventName);
+
             socket.on(eventName, function () {
                 var args = arguments;
                 $rootScope.$apply(function () {

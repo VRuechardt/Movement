@@ -53,4 +53,29 @@
     </div>
 
 
+    <div class="game--lobby" ng-show="inLobby">
+
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h4>Mitspieler</h4>
+                </div>
+                <div class="col s12" ng-repeat="aUser in users track by $index">
+                    <div class="game--lobby-user">
+                        {{aUser.firstname}}
+                        <span>{{joinedString(aUser.joined)}}</span>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="game--start waves-effect waves-light">
+                        <span>Starten</span>
+                        <i class="material-icons">play_arrow</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 </div>

@@ -61,6 +61,7 @@ var angularApp = angular.module('movement', [
 
     }])
     .factory('facebookLogin', require('./services/facebook-login'))
+    .factory('socket', require('./services/socket'))
 
 
     .run(['$route', '$rootScope', '$location', function($route, $rootScope, $location) {

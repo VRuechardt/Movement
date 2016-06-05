@@ -14,10 +14,12 @@ var app = express();
 var socketIOServer = new require('socket.io')();
 app.set('socketIOServer', socketIOServer);
 
+var protocol = require('./protocol')(socketIOServer);
+
 socketIOServer.on('connection', function(socket){
-    socket.on('room', function(room) {
-        socket.join(room);
-    });
+
+    protocol.init(socket);
+
 });
 
 require('./config/express')(app);

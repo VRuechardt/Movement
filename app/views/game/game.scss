@@ -98,6 +98,60 @@
 
   }
 
+  .game--lobby {
+
+    h4 {
+      text-align: left;
+      margin-top: 0;
+    }
+
+    .game--lobby-user {
+
+      text-align: left;
+      font-size: 25px;
+      background: $primary-color;
+      padding: 10px;
+      margin-bottom: 5px;
+
+      span {
+        font-size: 12px;
+        line-height: 50px;
+        float: right;
+      }
+
+    }
+
+    .game--start {
+
+      @extend .z-depth-1;
+
+      margin-top: 20px;
+      background: $secondary-color;
+      text-align: right;
+      height: 50px;
+      position: relative;
+      width: 100%;
+
+      span {
+        display: block;
+        width: 100%;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+      }
+
+      i {
+        font-size: 50px;
+        line-height: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+    }
+
+  }
+
 }
 
 .game--header {
