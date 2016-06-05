@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="de.charades.play" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
+    <name>Charades</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        By students for students.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="valentin.ruechardt@cdtm.de" href="http://valentin-ruechardt.de">
+        Valentin Rüchardt
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />

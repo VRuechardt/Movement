@@ -13,6 +13,29 @@
 </head>
 <body>
 
+    <!--removeIf(!browser)-->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '1014621818614561',
+                xfbml      : true,
+                version    : 'v2.6'
+            });
+            if(window.facebookCallback) {
+                window.facebookCallback();
+            }
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!--endRemoveIf(!browser)-->
+
     <div ng-view ng-cloak autoscroll="true" class="app"></div>
 
     <div class="orientation-handheld">
@@ -20,7 +43,10 @@
     </div>
 
     <link rel="stylesheet" href="css/index.css" />
+
+    <!--removeIf(browser)-->
     <script type="text/javascript" src="cordova.js"></script>
+    <!--endRemoveIf(browser)-->
     <script type="text/javascript" src="js/index.js"></script>
 
 </body>

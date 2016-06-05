@@ -6,7 +6,7 @@
 
 module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $location, $timeout) {
 
-
+    var facebook = {};
 
     var svc = {
 
@@ -16,7 +16,7 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
             loadingCallbacks.forEach(function(o) {
                 o(loading);
             });
-            facebookConnectPlugin.login(['public_profile','email'], function(response) {
+            facebook.login(['public_profile','email'], function(response) {
                 statusChange(response);
             });
 
@@ -24,11 +24,13 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
 
         check: function() {
 
+            facebook = FB ||facebookConnectPlugin;
+
             loading++;
             loadingCallbacks.forEach(function(o) {
                 o(loading);
             });
-            facebookConnectPlugin.getLoginStatus(function(response) {
+            facebook.getLoginStatus(function(response) {
                 statusChange(response);
             });
 
@@ -61,7 +63,7 @@ module.exports = ['$rootScope', '$location', '$timeout', function($rootScope, $l
 
             console.log('getting user');
 
-            facebookConnectPlugin.api(
+            facebook.api(
                 "/" + authResponse.userID, [],
                 function (response) {
                     console.log('getUser response', response);

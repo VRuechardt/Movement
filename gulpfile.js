@@ -13,6 +13,7 @@ var buffer = require('vinyl-buffer');
 var htmlmin = require('gulp-htmlmin');
 var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
+var removeCode = require('gulp-remove-code');
 const pngquant = require('imagemin-pngquant');
 var livereload = require('gulp-livereload');
 
@@ -96,6 +97,7 @@ gulp.task('html', function() {
 
     gulp.src('./app/index.html')
         .pipe(plumber())
+        .pipe(removeCode({ browser: !cordova }))
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
@@ -105,6 +107,7 @@ gulp.task('html', function() {
 
     gulp.src('./app/views/**/*.html')
         .pipe(plumber())
+        .pipe(removeCode({ browser: !cordova }))
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
@@ -113,6 +116,7 @@ gulp.task('html', function() {
 
     gulp.src('./app/directives/**/*.html')
         .pipe(plumber())
+        .pipe(removeCode({ browser: !cordova }))
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
@@ -125,17 +129,20 @@ gulp.task('html-dev', function() {
 
     gulp.src('./app/index.html')
         .pipe(plumber())
+        .pipe(removeCode({ browser: !cordova }))
         .pipe(rename('index.html'))
         .pipe(gulp.dest(dest))
         .pipe(livereload());
 
     gulp.src('./app/views/**/*.html')
         .pipe(plumber())
+        .pipe(removeCode({ browser: !cordova }))
         .pipe(gulp.dest(dest))
         .pipe(livereload());
 
     gulp.src('./app/directives/**/*.html')
         .pipe(plumber())
+        .pipe(removeCode({ browser: !cordova }))
         .pipe(gulp.dest(dest))
         .pipe(livereload());
 
